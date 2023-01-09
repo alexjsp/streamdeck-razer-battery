@@ -6,6 +6,8 @@ jobs:
     runs-on: ${{matrix.os}}-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - name: Make build directory
         run: cmake -E make_directory build
       - name: Configure
@@ -31,5 +33,5 @@ jobs:
           path: build/${{matrix.build-type}}/razer-battery.exe
     strategy:
       matrix:
-        os: [windows, macos]
+        os: [macos]
         build-type: [Release, Debug]
