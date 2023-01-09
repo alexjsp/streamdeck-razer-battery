@@ -74,7 +74,7 @@ MyStreamDeckPlugin::MyStreamDeckPlugin()
 	mTimer = new CallBackTimer();
 	mTimer->start(10000, [this]()
 	{
-		this->UpdateTimer();
+		this->Update();
 	});
 }
 
@@ -95,11 +95,8 @@ MyStreamDeckPlugin::~MyStreamDeckPlugin()
 	}
 }
 
-void MyStreamDeckPlugin::UpdateTimer()
+void MyStreamDeckPlugin::Update()
 {
-	//
-	// Warning: UpdateTimer() is running in the timer thread
-	//
 	if(mConnectionManager != nullptr)
 	{
 		mVisibleContextsMutex.lock();
@@ -135,7 +132,7 @@ void MyStreamDeckPlugin::KeyDownForAction(const std::string& inAction, const std
 
 void MyStreamDeckPlugin::KeyUpForAction(const std::string& inAction, const std::string& inContext, const json &inPayload, const std::string& inDeviceID)
 {
-	// Nothing to do
+	this->Update();
 }
 
 void MyStreamDeckPlugin::WillAppearForAction(const std::string& inAction, const std::string& inContext, const json &inPayload, const std::string& inDeviceID)
@@ -144,6 +141,7 @@ void MyStreamDeckPlugin::WillAppearForAction(const std::string& inAction, const 
 	mVisibleContextsMutex.lock();
 	mVisibleContexts.insert(inContext);
 	mVisibleContextsMutex.unlock();
+	this->Update();
 }
 
 void MyStreamDeckPlugin::WillDisappearForAction(const std::string& inAction, const std::string& inContext, const json &inPayload, const std::string& inDeviceID)

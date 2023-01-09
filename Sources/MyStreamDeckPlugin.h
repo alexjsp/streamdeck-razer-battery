@@ -40,7 +40,7 @@ public:
 
 private:
 	
-	void UpdateTimer();
+	void Update();
 	
 	std::mutex mVisibleContextsMutex;
 	std::set<std::string> mVisibleContexts;
