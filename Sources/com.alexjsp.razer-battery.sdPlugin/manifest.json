@@ -1,0 +1,36 @@
+{
+  "Actions": [
+    {
+      "Icon": "icon", 
+      "Name": "Razer Battery", 
+      "States": [
+        {
+          "Image": "defaultImage",
+          "TitleAlignment": "middle", 
+          "FontSize": "17"
+        }
+      ], 
+      "SupportedInMultiActions": false,
+      "Tooltip": "This action displays the Razer device battery status", 
+      "UUID": "com.alexjsp.razer-battery.battery"
+    }
+  ], 
+  "SDKVersion": 2,
+  "Author": "Alex J S-P", 
+  "CodePathMac": "razer-battery", 
+  "Description": "Displays the Razer device battery status.",
+  "Name": "Razer Battery", 
+  "Icon": "pluginIcon", 
+  "URL": "https://github.com/alexjsp", 
+  "Version": "1.0.1",
+  "OS": [
+    {
+        "Platform": "mac", 
+        "MinimumVersion" : "10.11"
+    }
+  ],
+  "Software": 
+    {
+        "MinimumVersion" : "4.1"
+    }
+}

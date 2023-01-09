@@ -1,0 +1,8 @@
+{
+  "Description": "Displays the Razer device battery status.", 
+  "Name": "Razer Battery", 
+  "com.alexjsp.razer-battery.battery": {
+    "Name": "Razer Battery", 
+    "Tooltip": "This action displays the Razer device battery status"
+  }
+}
