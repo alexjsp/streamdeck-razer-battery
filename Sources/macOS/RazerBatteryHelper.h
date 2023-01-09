@@ -15,6 +15,13 @@
 #include <mach/processor_info.h>
 #include <mach/mach_host.h>
 
+extern "C"
+{
+	#include "razercommon.h"
+	#include "razerdevice.h"
+	#include "razermouse_driver.h"
+}
+
 class RazerBatteryHelper
 {
 public:
@@ -22,14 +29,13 @@ public:
 	~RazerBatteryHelper() {};
 	
 	int GetCurrentBatteryValue();
+	bool GetChargingState();
+	void CloseOpenConnections();
 
 private:
+	RazerDevices mRazerDevices;
 	
-	processor_info_array_t mProcessorInfo = nullptr;
-	mach_msg_type_number_t mProcessorInfoCnt = 0;
-	
-	processor_info_array_t mOldProcessorInfo = nullptr;
-	mach_msg_type_number_t mOldProcessorInfoCnt = 0;
-	
-	unsigned mNumberOfCPUs = 0;
+	void LoadDevices();	
+	RazerDevice GetMouse();
+
 };

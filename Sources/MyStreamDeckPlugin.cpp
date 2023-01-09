@@ -104,15 +104,26 @@ void MyStreamDeckPlugin::UpdateTimer()
 	{
 		mVisibleContextsMutex.lock();
 		int currentValue = mRazerBatteryHelper->GetCurrentBatteryValue();
+		bool isCharging = mRazerBatteryHelper->GetChargingState();
+		mRazerBatteryHelper->CloseOpenConnections();
+		std::string title = "";
+		int state = 0;
+		
+		if (currentValue == -1) {
+			title = "";
+			state = 2;
+		}
+		else {
+			title = std::to_string(currentValue) + "%";
+			state = isCharging ? 1 : 0;
+		}
+		
 		for (const std::string& context : mVisibleContexts)
 		{
-		    if (currentValue == -1) {
-			    mConnectionManager->SetTitle("", context, kESDSDKTarget_HardwareAndSoftware);
-			}
-			else {
-				mConnectionManager->SetTitle(std::to_string(currentValue) + "%", context, kESDSDKTarget_HardwareAndSoftware);
-			}
+			mConnectionManager->SetTitle(title, context, kESDSDKTarget_HardwareAndSoftware);
+			mConnectionManager->SetState(state, context);
 		}
+
 		mVisibleContextsMutex.unlock();
 	}
 }

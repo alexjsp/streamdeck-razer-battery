@@ -8,6 +8,16 @@
           "Image": "defaultImage",
           "TitleAlignment": "middle", 
           "FontSize": "17"
+        },
+        {
+          "Image": "chargingImage",
+          "TitleAlignment": "middle", 
+          "FontSize": "17"
+        },
+        {
+          "Image": "disconnectedImage",
+          "TitleAlignment": "middle", 
+          "FontSize": "17"
         }
       ], 
       "SupportedInMultiActions": false,
@@ -22,7 +32,7 @@
   "Name": "Razer Battery", 
   "Icon": "pluginIcon", 
   "URL": "https://github.com/alexjsp", 
-  "Version": "1.0.1",
+  "Version": "1.1",
   "OS": [
     {
         "Platform": "mac", 
