@@ -112,7 +112,9 @@ void MyStreamDeckPlugin::Update()
 		}
 		else {
 			title = std::to_string(currentValue) + "%";
-			state = isCharging ? 1 : 0;
+			if (isCharging) { state = 1; }
+			else if (currentValue <= 5) { state = 3; }
+			else { state = 0; }
 		}
 		
 		for (const std::string& context : mVisibleContexts)

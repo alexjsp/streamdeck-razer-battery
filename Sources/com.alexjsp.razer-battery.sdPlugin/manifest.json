@@ -18,6 +18,11 @@
           "Image": "disconnectedImage",
           "TitleAlignment": "middle", 
           "FontSize": "17"
+        },
+        {
+          "Image": "lowBatteryImage",
+          "TitleAlignment": "middle", 
+          "FontSize": "17"
         }
       ], 
       "SupportedInMultiActions": false,
