@@ -8,8 +8,8 @@ The plugin is based on the [CPU Plugin from Elgato](https://github.com/elgatosf/
 
 ## Installation
 
-I'll try and add release builds you can just download, once I figure out how to do that.
+You can download the latest release from the releases section on the right, and double click the `streamDeckPlugin` to install it.
 
-## Source code
+## Compiling, Source, and Contributing
 
-The Sources folder contains the source code of the plugin.
+The Sources folder contains the source code of the plugin. I'll write up some compilation instructions at some point. If you want to contribute feel free to throw a PR up.
